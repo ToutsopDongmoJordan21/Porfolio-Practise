@@ -1,0 +1,35 @@
+<section id="projects">
+  <div class="container">
+    <p class="section-tag">Portfolio</p>
+    <h2 class="section-title">Mes <span class="text-cyan">Projets</span></h2>
+    <p class="section-subtitle">Quelques réalisations qui illustrent mon expertise technique</p>
+
+    <div class="projects-grid">
+      <a class="project-card" *ngFor="let p of projects"
+        [href]="p.url" target="_blank"
+        [class.no-link]="p.url === '#'"
+        (click)="p.url === '#' ? $event.preventDefault() : null">
+
+        <div class="card-top">
+          <span class="project-icon" [style.background]="p.color + '22'">{{ p.icon }}</span>
+          <div class="card-links" *ngIf="p.url !== '#'">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15,3 21,3 21,9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </div>
+        </div>
+
+        <h3 class="project-title" [style.color]="p.color">{{ p.title }}</h3>
+        <p class="project-desc">{{ p.description }}</p>
+
+        <div class="project-tags">
+          <span class="proj-tag" *ngFor="let tag of p.tags">{{ tag }}</span>
+        </div>
+
+        <div class="card-glow" [style.background]="p.color + '08'"></div>
+      </a>
+    </div>
+  </div>
+</section>

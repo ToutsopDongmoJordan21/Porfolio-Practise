@@ -1,0 +1,115 @@
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+
+  &.scrolled {
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.1);
+  }
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: color 0.3s;
+
+  .logo-bracket { color: var(--accent-cyan); }
+  .logo-name { color: var(--text-primary); margin: 0 2px; }
+
+  &:hover .logo-name { color: var(--accent-cyan); }
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+  align-items: center;
+
+  li a {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    &:hover {
+      color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.08);
+    }
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--accent-cyan);
+    transition: all 0.3s;
+    transform-origin: center;
+  }
+
+  &.active {
+    span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+@media (max-width: 900px) {
+  .hamburger { display: flex; }
+
+  .nav-links {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 280px; height: 100vh;
+    background: rgba(10, 10, 20, 0.98);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(0, 229, 255, 0.15);
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 40px 30px;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.open { right: 0; }
+
+    li a {
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      display: block;
+      border-radius: 8px;
+    }
+  }
+}

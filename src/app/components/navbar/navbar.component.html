@@ -1,0 +1,19 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="nav-inner">
+    <a class="nav-logo" (click)="scrollTo('#hero')">
+      <span class="logo-bracket">&lt;</span>
+      <span class="logo-name">Jordan.dev</span>
+      <span class="logo-bracket">/&gt;</span>
+    </a>
+
+    <ul class="nav-links" [class.open]="mobileOpen">
+      <li *ngFor="let link of navLinks">
+        <a (click)="scrollTo(link.href)">{{ link.label }}</a>
+      </li>
+    </ul>
+
+    <button class="hamburger" (click)="toggleMobile()" [class.active]="mobileOpen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>

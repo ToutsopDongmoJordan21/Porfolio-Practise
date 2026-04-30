@@ -1,0 +1,64 @@
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-left">
+        <p class="section-tag">À Propos</p>
+        <h2 class="section-title">Qui suis-<span class="text-cyan">je?</span></h2>
+        <p class="about-text">
+          Ingénieur logiciel axé sur les résultats avec plus de <strong>5 ans d'expérience</strong> dans le développement full stack.
+          Maîtrise de plusieurs langages et technologies de programmation, avec une expérience avérée dans la fourniture
+          de solutions logicielles de haute qualité dans les délais impartis.
+        </p>
+        <p class="about-text">
+          Passionné par les nouvelles technologies, l'intelligence artificielle et l'optimisation des infrastructures informatiques.
+          Je combine expertise technique et sens de la communication pour livrer des projets ambitieux.
+        </p>
+
+        <div class="edu-list">
+          <h3 class="sub-title">Formation</h3>
+          <div class="edu-card" *ngFor="let edu of education">
+            <div class="edu-icon">{{ edu.icon }}</div>
+            <div class="edu-info">
+              <h4>{{ edu.degree }}</h4>
+              <p>{{ edu.school }}</p>
+              <span class="edu-year">{{ edu.year }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-right">
+        <div class="lang-block">
+          <h3 class="sub-title">Langues</h3>
+          <div class="lang-item" *ngFor="let lang of languages">
+            <div class="lang-header">
+              <span class="lang-name">{{ lang.name }}</span>
+              <span class="lang-level">{{ lang.level }}</span>
+            </div>
+            <div class="lang-bar">
+              <div class="lang-fill" [style.width.%]="lang.pct"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="interests-block">
+          <h3 class="sub-title">Centres d'intérêt</h3>
+          <div class="interests-grid">
+            <div class="interest-item">
+              <span>⚽</span> Sport
+            </div>
+            <div class="interest-item">
+              <span>📚</span> Lecture
+            </div>
+            <div class="interest-item">
+              <span>🎮</span> Jeux Vidéos
+            </div>
+            <div class="interest-item">
+              <span>✈️</span> Voyages
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

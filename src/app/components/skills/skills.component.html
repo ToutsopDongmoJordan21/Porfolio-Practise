@@ -1,0 +1,36 @@
+<section id="skills">
+  <div class="container">
+    <p class="section-tag">Expertise</p>
+    <h2 class="section-title">Mes <span class="text-cyan">Compétences</span></h2>
+
+    <div class="skills-grid">
+      <div class="skill-category" *ngFor="let cat of categories">
+        <div class="cat-header">
+          <span class="cat-icon">{{ cat.icon }}</span>
+          <h3 class="cat-label">{{ cat.label }}</h3>
+        </div>
+        <div class="skill-bars">
+          <div class="skill-bar-item" *ngFor="let skill of cat.skills">
+            <div class="skill-info">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-pct">{{ skill.pct }}%</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" [style.width.%]="skill.pct"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="soft-skills-block">
+      <h3 class="block-title">Compétences Transversales</h3>
+      <div class="soft-grid">
+        <div class="soft-item" *ngFor="let s of softSkills">
+          <span class="soft-icon">{{ s.icon }}</span>
+          <span>{{ s.label }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

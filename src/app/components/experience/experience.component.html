@@ -1,0 +1,53 @@
+<section id="experience">
+  <div class="container">
+    <p class="section-tag">Parcours</p>
+    <h2 class="section-title">Mes <span class="text-cyan">Expériences</span></h2>
+
+    <div class="exp-layout">
+      <!-- Sidebar tabs -->
+      <div class="exp-tabs">
+        <button
+          *ngFor="let exp of experiences; let i = index"
+          class="exp-tab"
+          [class.active]="activeIndex === i"
+          [style.--tab-color]="exp.color"
+          (click)="activeIndex = i">
+          <span class="tab-company">{{ exp.company }}</span>
+          <span class="tab-period">{{ exp.period }}</span>
+        </button>
+      </div>
+
+      <!-- Content panel -->
+      <div class="exp-panel" *ngFor="let exp of experiences; let i = index" [class.visible]="activeIndex === i">
+        <div class="panel-header">
+          <div>
+            <h3 class="panel-role">{{ exp.role }}</h3>
+            <div class="panel-meta">
+              <span class="company-name" [style.color]="exp.color">{{ exp.company }}</span>
+              <span class="separator">·</span>
+              <span class="exp-type">{{ exp.type }}</span>
+              <span class="separator">·</span>
+              <span class="period-badge">{{ exp.period }}</span>
+            </div>
+          </div>
+        </div>
+
+        <ul class="task-list">
+          <li *ngFor="let task of exp.tasks" class="task-item">
+            <span class="task-bullet" [style.background]="exp.color"></span>
+            <span>{{ task }}</span>
+          </li>
+        </ul>
+
+        <div class="tech-stack">
+          <span class="tech-label">Stack utilisé :</span>
+          <div class="tech-tags">
+            <span class="tech-tag" *ngFor="let tech of exp.techs" [style.border-color]="exp.color + '44'" [style.color]="exp.color">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
